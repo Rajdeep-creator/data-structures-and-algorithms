@@ -2,29 +2,30 @@ class Solution {
     public int countBattleships(char[][] board) {
         int rows = board.length;
         int cols = board[0].length;
-      
-        int battleshipCount = 0;
-      
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (board[row][col] == '.') {
-                    continue;
-                }
-              
-    if (row > 0 && board[row - 1][col] == 'X') {
-                    continue;
-                }
-              
 
-                if (col > 0 && board[row][col - 1] == 'X') {
+        int battleship = 0;
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < cols; j++) {
+
+                if (board[i][j] == '.') {
                     continue;
                 }
-              
- 
-                battleshipCount++;
+                if (i > 0 && board[i - 1][j] == 'X') {
+
+                    continue;
+                }
+                if (j > 0 && board[i][j - 1] == 'X') {
+
+                    continue;
+                }
+
+                battleship++;
+
             }
+
         }
-      
-        return battleshipCount;
+        return battleship;
+
     }
 }
